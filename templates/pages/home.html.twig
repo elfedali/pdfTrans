@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome to Pdf translator
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				{{text | nl2br}}
+
+			</div>
+			<div class="col-lg-6">
+				<textarea class="form-control">{{text | nl2br}}</textarea>
+
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}
