@@ -1,16 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Welcome to Pdf translator
+{% block title %}Welcome to Pdf Translator
 {% endblock %}
 
 {% block body %}
 	<div class="container">
 		<div class="row">
+			<div class="col-12">
+				{% for key, value in details %}
+					<div>
+						<span class="fw-bold">{{ key }}:</span>
+						{{ value }}
+
+					</div>
+				{% endfor %}
+
+			</div>
+		</div>
+
+		<div class="row">
 			<div class="col-lg-6">
-				{{text | nl2br}}
+				<h2>Original</h2>
+				{{text | raw}}
 			</div>
 			<div class="col-lg-6">
-				<textarea class="form-control" rows="20">{{text | nl2br}}</textarea>
+				<h2 {% if target_lang=='ar' %} dir="rtl" {% endif %}>Translated</h2>
+
+
+				<div {% if target_lang=='ar' %} dir="rtl" {% endif %}>
+
+					{{translated_text | raw}}
+				</div>
+
 			</div>
 		</div>
 	</div>
